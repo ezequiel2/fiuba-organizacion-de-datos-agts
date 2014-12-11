@@ -77,8 +77,6 @@ Completador* Frase::devolverFrecuenciaMinima(unsigned numeroFrase){
 				palabraConMayorFrecuencia = (*this->frecuencias)[index]->getPalabraConMayorFrecuencia();
 			}
 		}
-
-	cout << "Encontro el minimo" << endl;
 	index--;
 	unComp = new Completador(posEnDondeCompletarFrase, numeroFrase, palabraConMayorFrecuencia);
 	}
@@ -88,13 +86,7 @@ Completador* Frase::devolverFrecuenciaMinima(unsigned numeroFrase){
 	}
 	return unComp;
 }
-/*
-unsigned Frase::getModelo(unsigned numeroModelo, unsigned index){
 
-	return (*this->frecuencias)[numeroModelo + index]->getModelo();
-
-}
-*/
 void Frase::setPalabraConMayorFrecuencia(ModelosSuperiores* modelosSuperiores,std::string contexto, unsigned index, unsigned numeroModelo){
 	string palabraConMayorFrecuencia;
 	bool hayQueAgregarPalabra;
@@ -105,10 +97,12 @@ void Frase::setPalabraConMayorFrecuencia(ModelosSuperiores* modelosSuperiores,st
 		(*this->frecuencias)[numeroModelo+index]->setearPalabraConMayorFrecuencia(palabraConMayorFrecuencia);
 	}
 }
+
 void Frase::setPalabraConMayorFrecuenciaMejora(ModelosSuperiores* modelosSuperiores,string contexto, unsigned index, unsigned numeroModelo){
 	string palabraConMayorFrecuencia = this->buscarPalabraConMayorFrecuencia(modelosSuperiores, contexto);
 	(*this->frecuencias)[numeroModelo+index]->setearPalabraConMayorFrecuencia(palabraConMayorFrecuencia);
 }
+
 void Frase::setPalabraConMayorFrecuencia(Modelo1* modelo1,std::string contexto, unsigned index, unsigned numeroModelo){
 	string palabraConMayorFrecuencia;
 	bool hayQueAgregarPalabra;
@@ -118,6 +112,7 @@ void Frase::setPalabraConMayorFrecuencia(Modelo1* modelo1,std::string contexto, 
 		(*this->frecuencias)[numeroModelo+index]->setearPalabraConMayorFrecuencia(palabraConMayorFrecuencia);
 	}
 }
+
 void Frase::setPalabraConMayorFrecuenciaMejora(Modelo1* modelo1, string contexto, unsigned index, unsigned numeroModelo){
 	string palabraConMayorFrecuencia = this->buscarPalabraConMayorFrecuencia(modelo1, contexto);
 	(*this->frecuencias)[numeroModelo+index]->setearPalabraConMayorFrecuencia(palabraConMayorFrecuencia);
