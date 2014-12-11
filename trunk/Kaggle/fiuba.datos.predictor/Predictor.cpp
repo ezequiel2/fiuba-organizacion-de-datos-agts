@@ -13,14 +13,10 @@ using namespace std;
 Predictor::Predictor() {
 	this->completadores = new vector<Completador*>;
 }
-//Paso el PPMC para ir cargando los modelos superiores
-//( esto es solo para el momento de testeo)
+
 void Predictor::completarFrases(vector<Frase* >* frasesACompletar, Modelo1* modelo1, Modelo0* modelo0){
 
 	this->completarFrecuencias(frasesACompletar, modelo1, modelo0);
-
-	//BORRAR ESTO. SOLO PARA VER SI FUNCIONA BIEN!!!!!!!
-//	this->mostrarFrecuencias(frasesACompletar);
 
 	this->cargarCompletadores(frasesACompletar);
 
@@ -31,8 +27,6 @@ void Predictor::completarFrases(vector<Frase* >* frasesACompletar, Modelo1* mode
 	//Accedo a la frase [numeroDeFrase] y agrego palabraConMayorFrecuencia en [indice]. Asi para todos.
 	//Esto es lo que faltaria.
 	this->completarPalabrasEnFrases(frasesACompletar);
-
-//	this->mostrarFrases(frasesACompletar);
 
 }
 
@@ -173,7 +167,6 @@ void Predictor::cargarCompletadores(vector<Frase*>* frasesACompletar){
 	for (unsigned i=0; i < tam; i++){
 
 		unsigned numeroFrase = i + 1;
-		cout<<"Antes de entrar a hallarFrecMinima"<< i+1 <<endl;
 		Completador *unCompletador = this->hallarLaFrecuenciaMinima((*frasesACompletar)[i], numeroFrase);
 		this->setearCompletadorModelo(unCompletador);
 	}
